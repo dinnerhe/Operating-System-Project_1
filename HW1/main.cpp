@@ -519,12 +519,17 @@ int main() {
     vector<string> args;
     while(1){
         
-        cout << "> ";
+        //cout << "> ";
         //cin >> input;
         //fgets(input, (sizeof input / sizeof input[0]), stdin);
-        //cin.get(input, 80);
+        //cin.ignore(numeric_limits<streamsize>::max(),'\n');
         cin.getline(input, 80);
-        if(strcmp(input, "\n") == 0 ){continue;}
+        if(strcmp(input, "\n") == 0 ){
+            cout << endl;
+            continue;}
+        if(strcmp(input, "") == 0 ){
+            //cout << endl;
+            continue;}
         if(input[strlen(input)-1] == '\n') input[strlen(input)-1]=0; // clear \n
         args = tokenize(input);
         for(int i =0; i< args.size(); i++){
